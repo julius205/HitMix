@@ -1,6 +1,6 @@
 import { Inter } from "next/font/google";
 import "../globals.css";
-import Sidebar from "@/components/shared/Sidebar";
+import Sidebar from "../../components/shared/Sidebar";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -16,6 +16,11 @@ export default function RootLayout({ children }) {
         <div className="flex">
           <Sidebar />
           <main className="flex-grow">{children}</main>
+          <img
+            src="/logo.png"
+            alt="Logo"
+            className="absolute inset-0 m-auto max-w-1/2 max-h-1/2 opacity-40 mix-blend-multiply z-0 pointer-events-none"
+          />
         </div>
       </body>
     </html>

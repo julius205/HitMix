@@ -7,9 +7,9 @@ body {
   background: linear-gradient(to top, #31052c, #000000);
   height: 100vh;
   color: white;
+  font-family: "Roboto", sans-serif;
 }
 
-/* Schriftart */
-body {
-  font-family: "Roboto", sans-serif; /* Beispiel für die Verwendung der Roboto-Schriftart */
+.slider input[type="range"]::-webkit-slider-thumb {
+  background-color: black;
 }
