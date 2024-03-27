@@ -4,12 +4,8 @@
 
 /* Hintergrundverlauf */
 body {
-  background: linear-gradient(to top, #31052c, #000000);
+  background: rgb(19, 18, 19);
   height: 100vh;
   color: white;
   font-family: "Roboto", sans-serif;
-}
-
-.slider input[type="range"]::-webkit-slider-thumb {
-  background-color: black;
 }

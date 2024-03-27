@@ -19,7 +19,7 @@ export default function RootLayout({ children }) {
           <img
             src="/logo.png"
             alt="Logo"
-            className="absolute inset-0 m-auto max-w-1/2 max-h-1/2 opacity-40 mix-blend-multiply z-0 pointer-events-none"
+            className="absolute inset-0 m-auto max-w-1/2 max-h-1/2 mix-blend-multiply opacity-50 z-[-1] pointer-events-none"
           />
         </div>
       </body>

@@ -24,7 +24,7 @@ const PlayScreen = () => {
         <h1 className="text-5xl font-semibold mt-20">Configure your game</h1>
         <div className="flex justify-center mt-8">
           <button
-            className={`mx-2 py-2 px-4 rounded-full border-2 border-[#B51D93] ${
+            className={`mx-2 py-2 px-4 rounded-full border-2 border-[#B51D93] w-44 text-xl ${
               gameMode === "singleplayer"
                 ? "bg-[#B51D93] text-white"
                 : "bg-[#181313] text-white"
@@ -34,7 +34,7 @@ const PlayScreen = () => {
             Singleplayer
           </button>
           <button
-            className={`mx-2 py-2 px-4 rounded-full ${
+            className={`mx-2 py-2 px-4 rounded-full border-2 border-[#B51D93] w-44 text-xl ${
               gameMode === "multiplayer"
                 ? "bg-[#B51D93] text-white"
                 : "bg-[#181313] text-white"
@@ -44,6 +44,14 @@ const PlayScreen = () => {
             Multiplayer
           </button>
         </div>
+        {gameMode === "singleplayer" && (
+          <div className="userNameInput mt-12 ">
+            <label clahtmlFor="userName" className="mr-5 text-lg font-medium">Username:</label>
+            <input type="text" className="rounded-md px-2 py-1 text-lg bg-zinc-800 font-medium">
+
+            </input>
+          </div>
+        )}
         {gameMode === "multiplayer" && (
           <div className="mt-8">
             <div className="flex justify-center items-center mb-4">
