@@ -1,10 +1,19 @@
 "use client";
 import React, { useState } from "react";
+import GenreList from "../../../components/GenreList";
+import Link from "next/link";
+import { useSearchParams } from "next/navigation";
+import { useRouter } from "next/navigation";
 
 const PlayScreen = () => {
   const [gameMode, setGameMode] = useState("singleplayer");
   const [multiplayerMode, setMultiplayerMode] = useState("local");
   const [playerCount, setPlayerCount] = useState(2);
+  const [userName, setUserName] = useState("");
+
+  const router = useRouter();
+  const searchParams = useSearchParams();
+  const selectedGenre = searchParams.get("genre");
 
   const handleGameModeChange = (mode) => {
     setGameMode(mode);
@@ -16,6 +25,14 @@ const PlayScreen = () => {
 
   const handlePlayerCountChange = (e) => {
     setPlayerCount(parseInt(e.target.value));
+  };
+
+  const handleStartGame = () => {
+    router.push({
+      pathname: "/game",
+      query: { genre: selectedGenre },
+      state: { userName: userName, gamemode: gameMode },
+    });
   };
 
   return (
@@ -46,10 +63,16 @@ const PlayScreen = () => {
         </div>
         {gameMode === "singleplayer" && (
           <div className="userNameInput mt-12 ">
-            <label clahtmlFor="userName" className="mr-5 text-lg font-medium">Username:</label>
-            <input type="text" className="rounded-md px-2 py-1 text-lg bg-zinc-800 font-medium">
-
-            </input>
+            <label htmlFor="userName" className="mr-5 text-lg font-medium">
+              Username:
+            </label>
+            <input
+              type="text"
+              id="userName"
+              value={userName}
+              onChange={(e) => setUserName(e.target.value)}
+              className="rounded-md px-2 py-1 text-lg bg-zinc-800 font-medium"
+            ></input>
           </div>
         )}
         {gameMode === "multiplayer" && (
@@ -98,6 +121,16 @@ const PlayScreen = () => {
             </div>
           </div>
         )}
+        <h1 className="mt-10 -mb-10 text-2xl font-medium">Select Genre</h1>
+        <GenreList />
+        <Link
+          href={{
+            pathname: "/game",
+            query: { genre: selectedGenre },
+          }}
+        >
+          Start Game
+        </Link>
       </div>
     </div>
   );
