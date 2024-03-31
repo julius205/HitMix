@@ -12,7 +12,7 @@ const Sidebar = () => {
   return (
     <div className="relative z-1">
       <div
-        className={`sidebar bg-[#100910] h-screen w-80 flex flex-col justify-between ${
+        className={`sidebar bg-[#0f0f0f] h-screen w-80 flex flex-col justify-between ${
           isSidebarOpen ? "block" : "hidden"
         }`}
       >

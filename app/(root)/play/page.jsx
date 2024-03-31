@@ -4,12 +4,14 @@ import GenreList from "../../../components/GenreList";
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
 import { useRouter } from "next/navigation";
+import useUserNameStore from "../../../lib/store";
 
 const PlayScreen = () => {
   const [gameMode, setGameMode] = useState("singleplayer");
   const [multiplayerMode, setMultiplayerMode] = useState("local");
-  const [playerCount, setPlayerCount] = useState(2);
-  const [userName, setUserName] = useState("");
+  const [playerCount, setPlayerCount] = useState(1);
+
+  const { userName, setUserName } = useUserNameStore();
 
   const router = useRouter();
   const searchParams = useSearchParams();
@@ -126,7 +128,7 @@ const PlayScreen = () => {
         <Link
           href={{
             pathname: "/game",
-            query: { genre: selectedGenre },
+            query: { genre: selectedGenre, playerCount: playerCount },
           }}
         >
           Start Game
